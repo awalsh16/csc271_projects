@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Submission page for recipes</title>
+</head>
+<body>
+    <form>
+        <label for="rname">Recipe Name:</label><br>
+        <input type="text" id="rname" name="rname"><br>
+        <label for="ingredients">Ingredients and instructions:</label><br>
+        <input type="text" id="ingredients" name="ingredients">
+    </form>
+    <br>
+    <p>Difficulty of recipe</p>
+
+    <form>
+        <input type="radio" id="easy" name="difficulty" value="Easy">
+        <label for="easy">Easy</label><br>
+        <input type="radio" id="medium" name="difficulty" value="Medium">
+        <label for="medium">Medium</label><br>
+        <input type="radio" id="hard" name="difficulty" value="Hard">
+        <label for="hard">Hard</label>
+    </form>
+    <br>
+    <p>Dietary restrictions</p>
+    <form>
+        <input type="checkbox" id="diet1" name="vegetarian" value="Vegetarian">
+        <label for="diet1"> Vegetarian</label><br>
+        <input type="checkbox" id="diet2" name="vegan" value="Vegan">
+        <label for="diet2"> Vegan</label><br>
+        <input type="checkbox" id="diet3" name="pescatarian" value="Pescatarian">
+        <label for="diet3"> Pescatarian</label>
+      </form>
+    <br>
+    <input type="button" onclick="location.href = 'index.html';" value="Submit">
+    <br>
+    <a href="index.html">Link back to main recipe page</a>
+
+</body>
