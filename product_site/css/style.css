@@ -21,6 +21,45 @@ p {
     margin: 10px 20px;
 }
 
+.header {
+    overflow: hidden;
+    background-color: rgb(206, 239, 250);
+    padding-top: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    
+}
+.header img {
+    float: left; /* Logo floats to the left */
+    width: 120px; /* Set the size of the logo */
+    height: auto;
+}
+.header nav a {
+    float: right; /* Navigation links float to the right */
+    color: #40595f;
+    text-decoration: none;
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    padding: 12px 20px;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover effect */
+}
+/* Hover and click effects on navigation links */
+.header nav a:hover {
+    background-color: #e74c3c; /* Red background on hover */
+    color: #fff; /* White text on hover */
+}
+
+.header nav a:active {
+    background-color: #2c3e50; /* Darker blue background on click */
+    color: #ecf0f1;
+}
+
+/* Active/current link styling */
+.header nav a.active {
+    background-color: #e74c3c; /* Red background for the active link */
+    color: #fff;
+}
 
 a:link {
     color: #2980b9; 
@@ -60,24 +99,37 @@ ul {
 }
 
 
-#footer {
-    background-color: #2c3e50;
-    color: #ecf0f1;
-    text-align: center;
-    padding: 20px;
-    font-size: 14px;
-}
 
 img {
-    display: block;
-    margin: 0 auto; 
-    max-width: 100%;
-    height: auto; 
+    float: right; /* Images float to the left */
+    margin: 10px 20px 10px 0; /* Margin around images to keep text away */
+    max-width: 100%; /* Ensure images scale down but never scale up */
+    height: auto; /* Maintain aspect ratio */
 }
-.container {
-    width: 80%;
-    margin: 0 auto;
+.main-content {
+    float: left; /* Content floats left */
+    width: 70%; /* Takes 70% of the available space */
+    background-color: #f0f0f0; /* Light grey background */
     padding: 20px;
-    background-color: #ecf0f1; 
-    border-radius: 10px;
+    margin: 20px auto;
+    border-radius: 10px; /* Optional: rounded corners */
+}
+
+@media screen and (max-width: 600px) {
+    .header nav a {
+        float: none; /* Stop floating */
+        display: block; /* Display as block elements */
+        text-align: left; /* Align text to the left */
+        padding: 10px; /* Adjust padding for small screens */
+    }
+
+    .main-content {
+        width: 100%; /* Full width for the main content */
+        font-size: 18px; /* Larger font for easier readability on small screens */
+    }
+
+    img {
+        float: none; /* Images stop floating */
+        margin: 0 auto; /* Center the images */
+    }
 }
