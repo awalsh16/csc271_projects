@@ -31,33 +31,33 @@ p {
     
 }
 .header img {
-    float: left; /* Logo floats to the left */
-    width: 120px; /* Set the size of the logo */
+    float: left;
+    width: 120px;
     height: auto;
 }
 .header nav a {
-    float: right; /* Navigation links float to the right */
+    float: right; 
     color: #40595f;
     text-decoration: none;
     font-family: 'Arial', sans-serif;
     font-size: 16px;
     padding: 12px 20px;
-    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover effect */
+    transition: background-color 0.3s ease, color 0.3s ease; 
 }
-/* Hover and click effects on navigation links */
+
 .header nav a:hover {
-    background-color: #e74c3c; /* Red background on hover */
-    color: #fff; /* White text on hover */
+    background-color: #e74c3c; 
+    color: #fff; 
 }
 
 .header nav a:active {
-    background-color: #2c3e50; /* Darker blue background on click */
+    background-color: #2c3e50;
     color: #ecf0f1;
 }
 
-/* Active/current link styling */
+
 .header nav a.active {
-    background-color: #e74c3c; /* Red background for the active link */
+    background-color: #e74c3c; 
     color: #fff;
 }
 
@@ -101,35 +101,35 @@ ul {
 
 
 img {
-    float: right; /* Images float to the left */
-    margin: 10px 20px 10px 0; /* Margin around images to keep text away */
-    max-width: 100%; /* Ensure images scale down but never scale up */
-    height: auto; /* Maintain aspect ratio */
+    float: right; 
+    margin: 10px 20px 10px 0; 
+    max-width: 100%; 
+    height: auto;
 }
 .main-content {
-    float: left; /* Content floats left */
-    width: 70%; /* Takes 70% of the available space */
-    background-color: #f0f0f0; /* Light grey background */
+    float: left; 
+    width: 70%;
+    background-color: #f0f0f0; 
     padding: 20px;
     margin: 20px auto;
-    border-radius: 10px; /* Optional: rounded corners */
+    border-radius: 10px; 
 }
 
 @media screen and (max-width: 600px) {
     .header nav a {
-        float: none; /* Stop floating */
-        display: block; /* Display as block elements */
-        text-align: left; /* Align text to the left */
-        padding: 10px; /* Adjust padding for small screens */
+        float: none; 
+        display: block; 
+        text-align: left;
+        padding: 10px; 
     }
 
     .main-content {
-        width: 100%; /* Full width for the main content */
-        font-size: 18px; /* Larger font for easier readability on small screens */
+        width: 100%; 
+        font-size: 18px; 
     }
 
     img {
-        float: none; /* Images stop floating */
-        margin: 0 auto; /* Center the images */
+        float: none; 
+        margin: 0 auto;
     }
 }
