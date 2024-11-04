@@ -47,3 +47,6 @@ function displaySlangs() {
 
     document.getElementById('slangList').innerHTML = content;
 }
+
+document.addEventListener('DOMContentLoaded', displaySlangs);
+//making sure the list is loaded upon load
