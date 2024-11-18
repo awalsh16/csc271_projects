@@ -48,5 +48,54 @@ function displaySlangs() {
     document.getElementById('slangList').innerHTML = content;
 }
 
-document.addEventListener('DOMContentLoaded', displaySlangs);
-//making sure the list is loaded upon load
+
+
+//event handler
+document.addEventListener('DOMContentLoaded', function() {
+    link = document.querySelectorAll('.wiggle-link');
+
+    link.forEach(function(link) {
+        //the mouseover and mouseout are the element nodes that the program is responding to
+        //and the function is made right there
+        link.addEventListener('mouseover', function() {this.classList.add('wiggling');});
+        link.addEventListener('mouseout', function() {this.classList.remove('wiggling');});
+    });
+});
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+
+    displaySlangs();
+    inputField = document.getElementById('proficiencyInput');
+    form = document.getElementById('proficiencyForm');
+  
+    // focus
+    inputField.addEventListener('focus', function() {
+      document.getElementById('result').textContent = "Input must be a number between 1 and 10.";
+    });
+  
+    // blur
+    inputField.addEventListener('blur', function() {
+      value = parseInt(inputField.value);
+
+      if (isNaN(value) || value < 1 || value > 10) {
+        document.getElementById('result').textContent = "Please enter a valid number between 1 and 10.";
+      } else {
+        document.getElementById('result').textContent = "";  //if the input is valid, clear the field
+      }
+    });
+  
+    // submission
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();  //stop the form from submitting normally
+      value = parseInt(inputField.value);
+
+      if (!isNaN(value) && value >= 1 && value <= 10) {
+        document.getElementById('result').textContent = "Response succesfully recorded.";
+      } else {
+        document.getElementById('result').textContent = "Please enter a valid number between 1 and 10 before submitting.";
+      }
+    });
+  });
+  

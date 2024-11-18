@@ -61,6 +61,25 @@ p {
     color: #fff;
 }
 
+.wiggle-link {
+    display: inline-block;
+    transition: transform 0.3s;
+}
+
+.wiggling {
+    animation: wiggle 0.5s infinite;
+}
+
+@keyframes wiggle {
+    /*defining steps*/
+    0%, 100%{
+        transform: rotate(-5deg);
+    }
+    50% {
+        transform: rotate(5deg);
+    }
+}
+
 a:link {
     color: #2980b9; 
     text-decoration: none;
