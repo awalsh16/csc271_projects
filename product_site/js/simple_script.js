@@ -1,11 +1,88 @@
 //This is a script used to show a phrase's details on the website.
-//example: region, popularity
+function word(name, translation, language, region, difficulty) {
+    this.name = name;
+    this.translation = translation;
+    this.language = language;
+    this.region = region;
+    this.difficulty = difficulty;
 
-var wordName = "Backstube"
-var region = "Southern Germany"
-var popularity = 8;
-var complexity = 2;
-var engTranslation = "Bakery"
+    this.changeRegion = function(newRegion){
+        this.region = newRegion;
+    };
+
+    this.evaluateDifficulty = function(languageSkill){
+        
+        languageSkill = Number(languageSkill);
+    
+        if (languageSkill >= 1 && languageSkill <= 10) {
+            var personalDifficulty = this.difficulty / languageSkill;
+            var difficultyString;
+    
+            //if your skill is twice the difficulty value, then its really easy.
+            //if it is equal, it would be easyish
+            //less than, moderate to difficult
+            if (personalDifficulty <= 0.5) {
+                difficultyString = 'Very Easy';
+            } else if (personalDifficulty <= 1) {
+                difficultyString = 'Easy';
+            } else if (personalDifficulty <= 2) {
+                difficultyString = 'Moderate';
+            } else {
+                difficultyString = 'Difficult';
+            }
+    
+            document.querySelector('#result').textContent = "Learning this slang would be: " + difficultyString;
+        } else {
+            document.querySelector('#result').textContent = "Please enter a valid skill level (1-10).";
+            return "Invalid skill level.";  // This will inform the caller of an invalid input.
+        }
+    }
+    
+    
+}
+function wordInfo(name, translation, language, region, difficulty) {
+    console.log("Name: " + name);
+    console.log("Translation: " + translation);
+    console.log("Language: " + language);
+    console.log("Region: " + region);
+    console.log("Difficulty: " + difficulty);
+}
+var backstube = new word("Backstube", "Bakery", "German", "Southern Germany", 2);
+
+wordInfo(
+    backstube.name,
+    backstube.translation,
+    backstube.language,
+    backstube.region,
+    backstube.difficulty,
+)
+
+var krass = new word("Krass", "Awesome", "German", "Germany", 4);
+
+wordInfo(
+    krass.name,
+    krass.translation,
+    krass.language,
+    krass.region,
+    krass.difficulty,
+)
+
+
+//set initial word
+var currWord = backstube;
+
+//function to change the current word
+function swapWord(){
+    if(currWord == krass){
+        currWord = backstube;
+    } else {
+        currWord = krass;
+    }
+    updateUI();
+}
+
+
+
 
 var introduction = "This webpage will be a template for the future pages that will host phrase or slang definitions and information."
 
@@ -18,40 +95,23 @@ title.textContent = 'Slang definition';
 var introClass = document.getElementsByClassName('intro');
 introClass[0].innerHTML = introduction;
 
-var slang = document.getElementById('slang');
-slang.innerHTML = wordName;
 
-var p = document.getElementsByTagName("p");
-p[1].innerHTML += engTranslation;
-p[2].innerHTML += region;
-p[3].innerHTML += popularity;
-p[4].innerHTML += complexity;
+function updateUI(){
+    var slang = document.getElementById('slang');
+    slang.innerHTML = currWord.name;
 
-
-
-//here is the function that evaluates personal difficulty
-function evaluateDifficulty() {
-    var languageSkill = document.querySelector('#languageSkill').value;
-    
-    languageSkill = Number(languageSkill);
-
-    if (languageSkill >= 1 && languageSkill <= 10) {
-        var personalDifficulty = complexity / languageSkill;
-        var difficulty;
-
-        //if your skill is twice the complexity value, then its really easy.
-        //if it is equal, it would be easyish
-        //less than, moderate to difficult
-        if (personalDifficulty <= 0.5) {
-            difficulty = 'Very Easy';
-        } else if (personalDifficulty <= 1) {
-            difficulty = 'Easy';
-        } else if (personalDifficulty <= 2) {
-            difficulty = 'Moderate';
-        } else {
-            difficulty = 'Difficult';
-        }
-
-        document.querySelector('#result').textContent = "Learning this slang would be: " + difficulty;
-    } 
+    var p = document.getElementsByTagName("p");
+    p[1].innerHTML = "Translation: " + currWord.translation;
+    p[2].innerHTML = "Region: " + currWord.region;
+    p[3].innerHTML = "Difficulty: " + currWord.difficulty;
 }
+
+
+//function to be used when button is clicked
+function checkDifficulty() {
+    var languageSkill = document.getElementById('languageSkill').value;
+    currWord.evaluateDifficulty(languageSkill);
+}
+
+updateUI()
+
