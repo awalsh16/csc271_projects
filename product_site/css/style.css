@@ -126,6 +126,7 @@ img {
     height: auto;
 }
 .main-content {
+    font-size: 14px;
     float: left; 
     width: 70%;
     background-color: #f0f0f0; 
